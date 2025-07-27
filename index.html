@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: El Camino del Secretario Íntimo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F3F4F6;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .stat-card {
+            background-color: #FFFFFF;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .flow-step {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .flow-arrow {
+            font-size: 2.5rem;
+            color: #4A5568;
+            margin: 0 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-400 mb-2">El Camino del Secretario Íntimo</h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Una guía visual para el autoconocimiento y el bienestar integral, basada en las enseñanzas del Sexto Grado.</p>
+        </header>
+
+        <main class="space-y-16">
+
+            <section id="autoconocimiento">
+                <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+                    <h2 class="text-3xl font-bold text-center mb-8 text-blue-600">El Principio: Conócete a Ti Mismo</h2>
+                    <p class="text-center max-w-2xl mx-auto mb-10 text-gray-700">El texto nos presenta dos facetas del ser. El verdadero conocimiento no reside en la figura externa, sino en el "Hombre Solar" interior: el ideal de un ser que cultiva la sabiduría, la introspección y la autenticidad.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="border-2 border-red-300 bg-red-50 rounded-lg p-6 text-center">
+                            <h3 class="text-2xl font-bold text-red-600 mb-3">El Ser Externo</h3>
+                            <p class="text-red-800">Representado por el "Salomón Bíblico". Simboliza la tiranía, el libertinaje y la búsqueda de respuestas fuera de uno mismo. Un camino de insatisfacción.</p>
+                            <div class="text-4xl mt-4"> बाहरी </div>
+                        </div>
+                        <div class="border-2 border-green-300 bg-green-50 rounded-lg p-6 text-center">
+                            <h3 class="text-2xl font-bold text-green-600 mb-3">El Ser Interno (Hombre Solar)</h3>
+                            <p class="text-green-800">Representado por el "Salomón Masónico". Simboliza la sabiduría, la riqueza interior y la verdad encontrada en la introspección. Es el camino del Superhombre.</p>
+                             <div class="text-4xl mt-4">☀️</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="trinidad">
+                <h2 class="text-3xl font-bold text-center mb-8 text-teal-600">La Trinidad Humana: Un Todo Integrado</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="text-gray-700 text-lg">
+                        <p class="mb-4">El ser humano es una trinidad a imagen de lo Divino. Cuerpo, Alma y Mente no son entidades separadas, sino partes interconectadas de un mismo sistema. El bienestar real solo se alcanza cuando estas tres esferas están en armonía.</p>
+                        <p class="font-bold text-teal-700">Cuidar de uno es cuidar de todos. El camino del Secretario Íntimo es aprender a nutrir y equilibrar cada una de estas facetas para lograr una vida plena y saludable.</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="trinityChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section id="salud-fisica">
+                <h2 class="text-3xl font-bold text-center mb-8 text-blue-600">El Templo del Cuerpo: Salud Física</h2>
+                <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+                    <p class="text-center max-w-2xl mx-auto mb-10 text-gray-700">El documento enfatiza que nuestro cuerpo es un templo sagrado. La salud física es el cimiento sobre el cual se construye el desarrollo espiritual. Dos pilares fundamentales son la digestión y la respiración conscientes.</p>
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
+                        <div class="text-center">
+                            <div class="flow-step bg-gradient-to-br from-blue-500 to-blue-600 p-4">Digestión Consciente</div>
+                            <p class="mt-2 text-sm max-w-xs mx-auto">"Saber comer" es más importante que "comer mucho".</p>
+                        </div>
+                        <div class="flow-arrow hidden md:block">→</div>
+                         <div class="flow-arrow md:hidden">↓</div>
+                        <div class="text-center">
+                            <div class="flow-step bg-gradient-to-br from-teal-500 to-teal-600 p-4">Respiración Completa</div>
+                            <p class="mt-2 text-sm max-w-xs mx-auto">Oxigena el cuerpo, calma la mente y desarrolla el alma.</p>
+                        </div>
+                         <div class="flow-arrow hidden md:block">→</div>
+                         <div class="flow-arrow md:hidden">↓</div>
+                        <div class="text-center">
+                            <div class="flow-step bg-gradient-to-br from-green-500 to-green-600 p-4">Salud y Vitalidad</div>
+                            <p class="mt-2 text-sm max-w-xs mx-auto">La base para una vida plena y un desarrollo superior.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="medicina-psiquica">
+                <h2 class="text-3xl font-bold text-center mb-8 text-teal-600">Medicina Universal: El Poder de la Mente</h2>
+                <p class="text-center max-w-2xl mx-auto mb-10 text-gray-700">Nuestros pensamientos son fuerzas que moldean nuestra realidad y nuestra salud. La "Medicina Psíquica Universal" consiste en usar el poder de la mente de forma consciente para nuestro bienestar.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="stat-card">
+                        <span class="text-5xl">💧</span>
+                        <h3 class="text-2xl font-bold my-3 text-blue-600">Hidratación Consciente</h3>
+                        <p class="text-gray-600">Bebe de 2 a 3 litros de agua al día, pensando en su efecto purificador.</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="text-5xl">🙏</span>
+                        <h3 class="text-2xl font-bold my-3 text-teal-600">Gratitud en la Comida</h3>
+                        <p class="text-gray-600">Agradece tus alimentos para concentrar energía positiva en ellos.</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="text-5xl">✅</span>
+                        <h3 class="text-2xl font-bold my-3 text-green-600">Afirmación Positiva</h3>
+                        <p class="text-gray-600">Afirma que la comida será provechosa para una buena digestión.</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="text-5xl">🧘</span>
+                        <h3 class="text-2xl font-bold my-3 text-purple-600">Reeducación Mental</h3>
+                        <p class="text-gray-600">No te quejes de las dolencias. Dirige tu pensamiento hacia la salud.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-16 pt-8 border-t border-gray-300">
+            <p class="text-gray-500">Infografía creada a partir del documento "Secretario Íntimo".</p>
+            <p class="text-sm text-gray-400 mt-2">El progreso se eleva sobre la conservación.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function wrapLabels(label, maxLength) {
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            }
+            lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const trinityCtx = document.getElementById('trinityChart').getContext('2d');
+        const trinityChart = new Chart(trinityCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Cuerpo Físico (Salud)', 'Alma (Emociones/Respiración)', 'Mente (Pensamiento/Espíritu)'],
+                datasets: [{
+                    label: 'Componentes del Ser',
+                    data: [33.3, 33.3, 33.3],
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.7)',  
+                        'rgba(20, 184, 166, 0.7)', 
+                        'rgba(139, 92, 246, 0.7)'  
+                    ],
+                    borderColor: [
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(20, 184, 166, 1)',
+                        'rgba(139, 92, 246, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                size: 14,
+                                family: 'Inter'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
